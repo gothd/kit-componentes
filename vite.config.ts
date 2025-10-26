@@ -12,4 +12,5 @@ export default defineConfig({
     }),
     tailwindcss(),
   ],
+  base: "/kit-componentes/", // substitua pelo nome do repo no GitHub
 });

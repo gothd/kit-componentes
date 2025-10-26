@@ -1,75 +1,56 @@
-# React + TypeScript + Vite
+# 👻 Kit Componentes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v4.1-0f172a?style=for-the-badge&logo=tailwindcss&logoColor=white)
 
-Currently, two official plugins are available:
+Um kit de componentes e templates modernos, construído com **React + Vite + React Router** e estilizado com **Tailwind CSS v4.1**.  
+O objetivo é oferecer uma base elegante, confiável e fácil de expandir para portfólios, e‑commerce e landing pages.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🎨 Design System
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+Este projeto utiliza o Tailwind v4.1 com tokens definidos diretamente no `@theme` do `style.css`.
 
-Note: This will impact Vite dev & build performances.
+### Paleta principal
+- **Primária:** Azul petróleo `#0f172a`  
+- **Primária clara:** `#1e293b`  
+- **Primária escura:** `#0c1420`  
+- **Neutros:** `#374151`, `#6b7280`, `#f9fafb`
 
-## Expanding the ESLint configuration
+### Tipografia
+- Fonte padrão: **Inter, sans-serif**
+- Hierarquia:  
+  - **h1** → `text-5xl md:text-6xl font-extrabold tracking-tight text-primary`  
+  - **h2** → `text-3xl md:text-4xl font-bold tracking-tight text-primary-dark`  
+  - **h3** → `text-2xl font-semibold text-neutral`  
+  - **p** → `text-base leading-relaxed text-neutral-light`  
+  - **small** → `text-sm text-neutral-light`
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Exemplo de uso
+```tsx
+<button className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark">
+  Botão Primário
+</button>
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📦 Estrutura
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- `/pages` → Páginas principais (Home, Templates, Components, Contact)
+
+- `/componentes` → Componentes reutilizáveis (Header, Footer, Cards, UI)
+
+- `/templates` → Exemplos prontos (Landing, Ecommerce)
+
+---
+
+## 🚀 Deploy
+
+O projeto está configurado para deploy no GitHub Pages com vite build + gh-pages.
+
+Acesse em:
+
+```
+https://SEU_USUARIO.github.io/kit-componentes/
 ```

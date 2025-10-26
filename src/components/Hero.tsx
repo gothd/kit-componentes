@@ -6,8 +6,9 @@ export default function Hero() {
           Sites rápidos e modernos
         </h2>
         <p className="mt-4 text-xl text-gray-600">
-          Uma coleção de componentes acessíveis com Radix + Tailwind. Templates
-          prontos para freelancers que querem entregar em tempo recorde.
+          Uma coleção de componentes acessíveis com Radix + Tailwind.
+          <br /> Templates prontos para freelancers que querem entregar em tempo
+          recorde.
         </p>
         <a
           href="#"
