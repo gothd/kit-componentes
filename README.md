@@ -2,8 +2,8 @@
 
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v4.1-0f172a?style=for-the-badge&logo=tailwindcss&logoColor=white)
 
-Um kit de componentes e templates modernos, construído com **React + Vite + React Router** e estilizado com **Tailwind CSS v4.1**.  
-O objetivo é oferecer uma base elegante, confiável e fácil de expandir para portfólios, e‑commerce e landing pages.
+Um kit de **componentes distribuíveis encapsulados para web** (Web Components), que também podem ser consumidos como **componentes React** quando publicado como package.  
+Construído com **React + Vite + React Router** e estilizado com **Tailwind CSS v4.1**, este projeto oferece uma base elegante, confiável e fácil de expandir para **portfólios, e‑commerce e landing pages**.
 
 ---
 
@@ -37,20 +37,61 @@ Este projeto utiliza o Tailwind v4.1 com tokens definidos diretamente no `@theme
 
 ## 📦 Estrutura
 
-- `/pages` → Páginas principais (Home, Templates, Components, Contact)
-
-- `/componentes` → Componentes reutilizáveis (Header, Footer, Cards, UI)
-
-- `/templates` → Exemplos prontos (Landing, Ecommerce)
+- `/pages` → Páginas principais (Home, Templates, Components, Contact)  
+- `/componentes` → Componentes reutilizáveis (Header, Footer, Cards, UI)  
+- `/templates` → Exemplos prontos (Landing, Ecommerce)  
+- `/docsConfig.tsx` → Showcase de documentação com exemplos de uso  
 
 ---
 
-## 🚀 Deploy
+## 🛠️ Desenvolvimento
 
-O projeto está configurado para deploy no GitHub Pages com vite build + gh-pages.
+Para rodar o servidor de desenvolvimento e visualizar a documentação interativa com **componentes e templates**:
 
-Acesse em:
+```bash
+# Instalar dependências
+npm install
 
+# Rodar servidor de desenvolvimento
+npm run dev
 ```
-https://SEU_USUARIO.github.io/kit-componentes/
+
+Acesse em [http://localhost:5173](http://localhost:5173).
+
+---
+
+## 📚 Documentação
+
+A documentação interna exibe exemplos práticos de cada componente e template, permitindo testar interações e copiar snippets prontos.  
+Ela é acessível diretamente no servidor de desenvolvimento.
+
+---
+
+## 📤 Distribuição
+
+Os componentes deste kit serão **encapsulados como Web Components** e também exportados como **Componentes React**.  
+Isso garante que possam ser usados em qualquer stack (Vanilla JS, Vue, Angular, Svelte) ou diretamente em projetos React.
+
+### Exemplo de uso futuro
+
+**Como Web Component:**
+```html
+<kc-button variant="primary">Clique aqui</kc-button>
 ```
+
+**Como Componente React:**
+```tsx
+import { Button } from "kit-componentes";
+
+export default function App() {
+  return <Button variant="primary">Clique aqui</Button>;
+}
+```
+
+> ℹ️ Este recurso ainda está em desenvolvimento e será disponibilizado quando o package for publicado.
+
+---
+
+## 📬 Contato
+
+Na página **Contato** do projeto você pode enviar um e‑mail diretamente para o autor (eu).
