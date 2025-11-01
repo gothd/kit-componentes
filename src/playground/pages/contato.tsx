@@ -1,7 +1,7 @@
+import { Button } from "@components/ui/Button";
+import { Input } from "@components/ui/Input";
 import emailjs from "@emailjs/browser";
 import { useRef } from "react";
-import { Button } from "../components/Button";
-import { Input } from "../components/Input";
 import { env } from "../config/env";
 
 export default function Contato() {

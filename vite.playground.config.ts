@@ -12,27 +12,21 @@ export default defineConfig({
     }),
     tailwindcss(),
   ],
+  root: "src/playground",
   resolve: {
     alias: {
+      "@components": path.resolve(__dirname, "src/components"),
+      "@components/ui": path.resolve(__dirname, "src/components/ui"),
       "@styles": path.resolve(__dirname, "src/styles"),
       "@utils": path.resolve(__dirname, "src/utils"),
       "@hooks": path.resolve(__dirname, "src/hooks"),
     },
   },
   build: {
-    lib: {
-      entry: path.resolve(__dirname, "src/components/index.ts"),
-      name: "KitComponentes",
-      fileName: (format) => `kit-componentes.${format}.js`,
-    },
-    rollupOptions: {
-      external: ["react", "react-dom"],
-      output: {
-        globals: {
-          react: "React",
-          "react-dom": "ReactDOM",
-        },
-      },
-    },
+    outDir: "../../dist-playground",
+  },
+  server: {
+    port: 5173,
+    open: "/", // abre direto o playground
   },
 });

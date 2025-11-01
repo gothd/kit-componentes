@@ -5,12 +5,11 @@
   "type": "module",
   "homepage": "https://gothd.github.io/kit-componentes",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "dev": "vite --config vite.playground.config.ts",
+    "build:lib": "tsc -p tsconfig.build.json && vite build",
+    "preview:lib": "vite preview",
+    "build:playground": "tsc -p tsconfig.playground.json && vite build --config vite.playground.config.ts",
+    "preview:playground": "vite preview --config vite.playground.config.ts"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -18,11 +17,16 @@
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-dropdown-menu": "^2.1.16",
     "@radix-ui/react-popover": "^1.1.15",
+    "@radix-ui/react-portal": "^1.1.9",
     "@radix-ui/react-tabs": "^1.1.13",
     "@radix-ui/react-tooltip": "^1.2.8",
+    "clsx": "^2.1.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-router-dom": "^7.9.4"
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.9.4",
+    "tailwind-merge": "^3.3.1",
+    "vaul": "^1.1.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
@@ -35,7 +39,6 @@
     "eslint": "^9.36.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.22",
-    "gh-pages": "^6.3.0",
     "globals": "^16.4.0",
     "tailwindcss": "^4.1.16",
     "typescript": "~5.9.3",
