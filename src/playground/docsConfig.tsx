@@ -54,7 +54,7 @@ export const docs: Record<string, DocEntry[]> = {
       description: "Container com borda e sombra.",
       component: <Card title="Título">Exemplo de Card</Card>,
     },
-  ],
+  ].sort((a, b) => a.name.localeCompare(b.name)),
   "UI Primitives": [
     {
       name: "Accordion",
@@ -232,5 +232,5 @@ export const docs: Record<string, DocEntry[]> = {
         </Tabs>
       ),
     },
-  ],
+  ].sort((a, b) => a.name.localeCompare(b.name)),
 };

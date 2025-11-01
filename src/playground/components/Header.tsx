@@ -33,7 +33,7 @@ export default function Header() {
         <nav className="flex gap-4 lg:gap-6">
           <Drawer direction={isDesktop ? "right" : "left"}>
             <DrawerTrigger asChild>
-              <button className="flex items-center gap-2 text-neutral hover:text-indigo-600">
+              <button className="flex items-center gap-2 text-neutral hover:text-indigo-600 cursor-pointer">
                 <FiPackage className="size-6 md:hidden lg:block" />
                 <div className="hidden lg:block">Componentes</div>
               </button>
@@ -70,12 +70,12 @@ export default function Header() {
                         {category}
                         <FiChevronDown className="w-4 h-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />
                       </AccordionTrigger>
-                      <AccordionContent className="pl-4 flex flex-col gap-1 mt-2">
+                      <AccordionContent className="pl-4 my-2 flex flex-col gap-1">
                         {comps.map((doc) => (
                           <Link
                             key={doc.name}
                             to={`/${doc.name.toLowerCase()}`}
-                            className="text-neutral hover:text-indigo-600"
+                            className="text-neutral hover:text-indigo-600 py-1.5"
                           >
                             {doc.name}
                           </Link>

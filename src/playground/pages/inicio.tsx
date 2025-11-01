@@ -26,8 +26,8 @@ function HomePage() {
   ]; */
 
   return (
-    <>
-      <section>
+    <div className="space-y-8">
+      <section className="space-y-4">
         <h1>Tipografia</h1>
         <h2>Subtítulo de exemplo</h2>
         <h3>Seção menor</h3>
@@ -37,10 +37,10 @@ function HomePage() {
 
       <section>
         <h2>Cores</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-6">
           {/* Primária */}
           <div className="flex flex-col items-center">
-            <div className="w-20 h-20 rounded-lg bg-primary"></div>
+            <div className="size-20 rounded-lg bg-primary"></div>
             <span className="mt-2 text-sm">
               Primary
               <br />
@@ -48,7 +48,7 @@ function HomePage() {
             </span>
           </div>
           <div className="flex flex-col items-center">
-            <div className="w-20 h-20 rounded-lg bg-primary-light"></div>
+            <div className="size-20 rounded-lg bg-primary-light"></div>
             <span className="mt-2 text-sm">
               Primary Light
               <br />
@@ -56,7 +56,7 @@ function HomePage() {
             </span>
           </div>
           <div className="flex flex-col items-center">
-            <div className="w-20 h-20 rounded-lg bg-primary-dark"></div>
+            <div className="size-20 rounded-lg bg-primary-dark"></div>
             <span className="mt-2 text-sm">
               Primary Dark
               <br />
@@ -66,7 +66,7 @@ function HomePage() {
 
           {/* Neutros */}
           <div className="flex flex-col items-center">
-            <div className="w-20 h-20 rounded-lg bg-neutral"></div>
+            <div className="size-20 rounded-lg bg-neutral"></div>
             <span className="mt-2 text-sm">
               Neutral
               <br />
@@ -74,7 +74,7 @@ function HomePage() {
             </span>
           </div>
           <div className="flex flex-col items-center">
-            <div className="w-20 h-20 rounded-lg bg-neutral-light"></div>
+            <div className="size-20 rounded-lg bg-neutral-light"></div>
             <span className="mt-2 text-sm">
               Neutral Light
               <br />
@@ -82,7 +82,7 @@ function HomePage() {
             </span>
           </div>
           <div className="flex flex-col items-center">
-            <div className="w-20 h-20 rounded-lg bg-neutral-bg"></div>
+            <div className="size-20 rounded-lg bg-neutral-bg"></div>
             <span className="mt-2 text-sm">
               Neutral BG
               <br />
@@ -91,7 +91,7 @@ function HomePage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
 

@@ -51,7 +51,7 @@
 
 @layer base {
   html {
-    @apply text-[18px] font-sans text-neutral; /* base de leitura */
+    @apply font-sans text-neutral; /* base de leitura */
   }
 
   h1 {
