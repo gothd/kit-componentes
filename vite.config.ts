@@ -26,7 +26,7 @@ export default defineConfig({
       name: "KitComponentes",
       fileName: (format) => `kit-componentes.${format}.js`,
     },
-    outDir: "dist/lib",
+    outDir: "dist/react",
     emptyOutDir: false,
     rollupOptions: {
       external: ["react", "react-dom"],

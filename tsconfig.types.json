@@ -6,17 +6,17 @@
     "moduleResolution": "bundler",
     "declaration": true,
     "emitDeclarationOnly": true,
-    "outDir": "dist/types",
+    "outDir": "dist/react/types",
     "rootDir": "src/components",
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
       "@components": ["src/components"],
       "@components/*": ["src/components/*"],
-      "@utils": ["dist/utils"],
-      "@utils/*": ["dist/utils/*"]
+      "@utils": ["dist/react/utils"],
+      "@utils/*": ["dist/react/utils/*"]
     }
   },
-  "include": ["dist/utils", "src/components/**/*"],
+  "include": ["dist/react/utils", "src/components/**/*"],
   "exclude": ["node_modules", "**/*.web.tsx"]
 }

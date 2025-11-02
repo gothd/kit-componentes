@@ -12,8 +12,6 @@ export function ButtonBase({
   variant = "primary",
   ...props
 }: ButtonBaseProps) {
-  console.log("[ButtonBase] className recebido:", className);
-
   const variants = {
     primary: "bg-primary text-white hover:bg-primary-dark focus:ring-primary",
     secondary: "bg-neutral-bg text-neutral hover:bg-neutral-light focus:ring-neutral",

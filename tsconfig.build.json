@@ -15,7 +15,7 @@
     "tsBuildInfoFile": "./dist/.tsbuildinfo",
     "declaration": true,
     "emitDeclarationOnly": false,
-    "outDir": "dist",
+    "outDir": "dist/react",
     "rootDir": "src",
 
     "strict": true,

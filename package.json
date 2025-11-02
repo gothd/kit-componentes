@@ -1,44 +1,35 @@
 {
   "name": "kit-componentes",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
-  "main": "dist/kit-componentes.umd.js",
-  "module": "dist/kit-componentes.es.js",
-  "types": "dist/types/index.d.ts",
+  "main": "dist/react/kit-componentes.umd.js",
+  "module": "dist/react/kit-componentes.es.js",
+  "types": "dist/react/types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/lib/kit-componentes.es.js",
-      "require": "./dist/lib/kit-componentes.umd.js"
+      "import": "./dist/react/kit-componentes.es.js",
+      "require": "./dist/react/kit-componentes.umd.js",
+      "types": "./dist/react/types/index.d.ts"
     },
     "./hooks": {
-      "import": "./dist/hooks/index.js",
-      "require": "./dist/hooks/index.js"
+      "import": "./dist/react/hooks/index.js",
+      "require": "./dist/react/hooks/index.js",
+      "types": "./dist/react/hooks/index.d.ts"
     },
     "./utils": {
-      "import": "./dist/utils/index.js",
-      "require": "./dist/utils/index.js"
+      "import": "./dist/react/utils/index.js",
+      "require": "./dist/react/utils/index.js",
+      "types": "./dist/react/utils/index.d.ts"
     },
-    "./styles.css": "./dist/styles/index.css",
     "./styles": {
-      "import": "./dist/styles/index.js",
-      "require": "./dist/styles/index.js"
-    }
-  },
-  "typesVersions": {
-    "*": {
-      "hooks": [
-        "dist/hooks/index.d.ts"
-      ],
-      "utils": [
-        "dist/utils/index.d.ts"
-      ],
-      "styles": [
-        "dist/styles/index.d.ts"
-      ]
-    }
+      "import": "./dist/react/styles/index.js",
+      "require": "./dist/react/styles/index.js",
+      "types": "./dist/react/styles/index.d.ts"
+    },
+    "./styles.css": "./dist/react/styles/index.css"
   },
   "files": [
-    "dist"
+    "dist/react"
   ],
   "scripts": {
     "dev": "vite --config vite.playground.config.ts",
@@ -46,13 +37,13 @@
     "preview:playground": "vite preview --config vite.playground.config.ts",
     "build:bundles": "tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json",
     "build:types": "tsc -p tsconfig.types.json",
-    "build:copy-css": "cpx \"src/styles/index.css\" dist/styles",
-    "build:lib": "npm run build:bundles && npm run build:types && vite build && npm run build:copy-css",
-    "preview:lib": "vite preview",
+    "build:copy-css": "cpx \"src/styles/index.css\" dist/react/styles",
+    "build:react": "npm run build:bundles && npm run build:types && vite build && npm run build:copy-css",
+    "preview:react": "vite preview",
     "build:css": "npx postcss ./src/styles/index.css -o ./src/styles/tailwind.flat.css",
     "build:wc": "npm run build:css && vite build --config vite.web.config.ts",
     "preview:wc": "vite preview --config vite.web.config.ts",
-    "build:prod": "npm run build:lib && npm run build:wc"
+    "build:prod": "npm run build:react && npm run build:wc"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
