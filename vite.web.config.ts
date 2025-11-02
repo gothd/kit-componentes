@@ -20,23 +20,20 @@ export default defineConfig({
       "@hooks": path.resolve(__dirname, "src/hooks"),
     },
   },
+  define: {
+    "process.env.NODE_ENV": JSON.stringify("production"),
+  },
   build: {
     lib: {
-      entry: path.resolve(__dirname, "src/components/index.ts"),
-      name: "KitComponentes",
-      fileName: (format) => `kit-componentes.${format}.js`,
+      entry: path.resolve(__dirname, "src/register.tsx"),
+      name: "KitComponentesWC",
+      fileName: () => `kit-componentes-wc.js`,
+      formats: ["iife"], // 👈 gera um único arquivo que se autoexecuta e registra tudo no window
     },
-    outDir: "dist/lib",
+    outDir: "dist/wc",
     emptyOutDir: false,
     rollupOptions: {
-      external: ["react", "react-dom"],
-      output: {
-        globals: {
-          react: "React",
-          "react-dom": "ReactDOM",
-        },
-      },
+      // React e ReactDOM ficam embutidos no bundle
     },
-    cssCodeSplit: false,
   },
 });

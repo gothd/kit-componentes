@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "composite": true,
     "baseUrl": ".",
     "target": "ES2022",
     "useDefineForClassFields": true,
@@ -19,11 +20,7 @@
 
     "paths": {
       "@components": ["src/components"],
-      "@components/*": ["src/components/*"],
-      "@styles/*": ["src/styles/*"],
-      "@utils": ["src/utils"],
-      "@utils/*": ["src/utils/*"],
-      "@hooks/*": ["src/hooks/*"]
+      "@components/*": ["src/components/*"]
     }
   },
   "include": ["src/playground"]

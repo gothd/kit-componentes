@@ -1,8 +1,20 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.build.json" },
-    { "path": "./tsconfig.node.json" },
-    { "path": "./tsconfig.playground.json" }
-  ]
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "moduleResolution": "bundler",
+    "module": "esnext",
+    "paths": {
+      "@/*": ["src/*"],
+      "@styles/*": ["src/styles/*"],
+      "@utils": ["src/utils"],
+      "@utils/*": ["src/utils/*"],
+      "@hooks/*": ["src/hooks/*"]
+    }
+  },
+  "files": ["vite-env.d.ts"],
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.playground.json" }, { "path": "./tsconfig.node.json" }]
 }
