@@ -1,6 +1,6 @@
 "use client";
 
-import {
+/* import {
   Accordion,
   AccordionContent,
   AccordionItem,
@@ -12,17 +12,18 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@components/ui";
-import { useMediaQuery } from "@hooks/useMediaQuery";
-import { cn } from "@utils";
-import { typedEntries } from "@utils/typedEntries";
-import { FiChevronDown, FiLayout, FiPackage, FiX } from "react-icons/fi";
+} from "@components/ui"; */
+// import { useMediaQuery } from "@hooks/useMediaQuery";
+// import { cn } from "@utils";
+// import { typedEntries } from "@utils/typedEntries";
+// import { FiChevronDown, FiLayout, FiPackage, FiX } from "react-icons/fi";
+import { FiLayout } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { env } from "../config/env";
-import { docs } from "../docsConfig";
+// import { docs } from "../docsConfig";
 
 export default function Header() {
-  const isDesktop = useMediaQuery("(min-width: 768px)");
+  // const isDesktop = useMediaQuery("(min-width: 768px)");
 
   return (
     <header className="bg-white shadow-md">
@@ -31,11 +32,11 @@ export default function Header() {
           <h1 className="text-xl font-bold text-indigo-600">{env.APP_NAME}</h1>
         </Link>
         <nav className="flex gap-4 lg:gap-6">
-          <Drawer direction={isDesktop ? "right" : "left"}>
+          {/* <Drawer direction={isDesktop ? "right" : "left"}>
             <DrawerTrigger asChild>
               <button className="flex items-center gap-2 text-neutral hover:text-indigo-600 cursor-pointer">
                 <FiPackage className="size-6 md:hidden lg:block" />
-                <div className="hidden lg:block">Componentes</div>
+                <div className="hidden md:block">Componentes</div>
               </button>
             </DrawerTrigger>
             <DrawerContent
@@ -83,14 +84,14 @@ export default function Header() {
                 </Accordion>
               </div>
             </DrawerContent>
-          </Drawer>
+          </Drawer> */}
 
           <Link
             to="/templates"
             className="flex items-center gap-2 text-neutral hover:text-indigo-600"
           >
             <FiLayout className="size-6 md:hidden lg:block" />
-            <div className="hidden lg:block">Templates</div>
+            <div className="hidden md:block">Templates</div>
           </Link>
 
           <Link to="/contato" className="text-neutral hover:text-indigo-600">

@@ -1,97 +1,112 @@
 # 👻 Kit Componentes
 
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v4.1-0f172a?style=for-the-badge&logo=tailwindcss&logoColor=white)
+[![npm version](https://img.shields.io/npm/v/@gothd/kit-componentes?color=blue&logo=npm)](https://www.npmjs.com/package/@gothd/kit-componentes)
+[![GitHub Pages](https://img.shields.io/badge/gh--pages-deployed-brightgreen?logo=github)](https://gothd.github.io/kit-componentes/wc/latest/kit-componentes-wc.js)
 
-Um kit de **componentes distribuíveis encapsulados para web** (Web Components), que também podem ser consumidos como **componentes React** quando publicado como package.  
-Construído com **React + Vite + React Router** e estilizado com **Tailwind CSS v4.1**, este projeto oferece uma base elegante, confiável e fácil de expandir para **portfólios, e‑commerce e landing pages**.
+Biblioteca de componentes UI disponível em **duas formas de consumo**:
 
----
-
-## 🎨 Design System
-
-Este projeto utiliza o Tailwind v4.1 com tokens definidos diretamente no `@theme` do `style.css`.
-
-### Paleta principal
-- **Primária:** Azul petróleo `#0f172a`  
-- **Primária clara:** `#1e293b`  
-- **Primária escura:** `#0c1420`  
-- **Neutros:** `#374151`, `#6b7280`, `#f9fafb`
-
-### Tipografia
-- Fonte padrão: **Inter, sans-serif**
-- Hierarquia:  
-  - **h1** → `text-5xl md:text-6xl font-extrabold tracking-tight text-primary`  
-  - **h2** → `text-3xl md:text-4xl font-bold tracking-tight text-primary-dark`  
-  - **h3** → `text-2xl font-semibold text-neutral`  
-  - **p** → `text-base leading-relaxed text-neutral-light`  
-  - **small** → `text-sm text-neutral-light`
-
-### Exemplo de uso
-```tsx
-<button className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark">
-  Botão Primário
-</button>
-```
+- **Web Components**: distribuídos via GitHub Pages, prontos para uso em qualquer projeto (React, Vue, Angular ou vanilla).
+- **React Package**: publicado no npm sob o namespace `@gothd/kit-componentes`.
 
 ---
 
-## 📦 Estrutura
-
-- `/pages` → Páginas principais (Home, Templates, Components, Contact)  
-- `/componentes` → Componentes reutilizáveis (Header, Footer, Cards, UI)  
-- `/templates` → Exemplos prontos (Landing, Ecommerce)  
-- `/docsConfig.tsx` → Showcase de documentação com exemplos de uso  
-
----
-
-## 🛠️ Desenvolvimento
-
-Para rodar o servidor de desenvolvimento e visualizar a documentação interativa com **componentes e templates**:
+## 🚀 Instalação (React)
 
 ```bash
-# Instalar dependências
-npm install
-
-# Rodar servidor de desenvolvimento
-npm run dev
+npm install @gothd/kit-componentes
+# ou
+yarn add @gothd/kit-componentes
 ```
 
-Acesse em [http://localhost:5173](http://localhost:5173).
+### Uso básico (componentes compostos)
 
----
-
-## 📚 Documentação
-
-A documentação interna exibe exemplos práticos de cada componente e template, permitindo testar interações e copiar snippets prontos.  
-Ela é acessível diretamente no servidor de desenvolvimento.
-
----
-
-## 📤 Distribuição
-
-Os componentes deste kit serão **encapsulados como Web Components** e também exportados como **Componentes React**.  
-Isso garante que possam ser usados em qualquer stack (Vanilla JS, Vue, Angular, Svelte) ou diretamente em projetos React.
-
-### Exemplo de uso futuro
-
-**Como Web Component:**
-```html
-<kc-button variant="primary">Clique aqui</kc-button>
-```
-
-**Como Componente React:**
 ```tsx
-import { Button } from "kit-componentes";
+import { Card } from "@gothd/kit-componentes";
 
 export default function App() {
-  return <Button variant="primary">Clique aqui</Button>;
+  return (
+    <Card title="Título" description="Exemplo">
+      Sou um Card
+    </Card>
+  );
 }
 ```
 
-> ℹ️ Este recurso ainda está em desenvolvimento e será disponibilizado quando o package for publicado.
+### Uso de primitivos de UI
+
+```tsx
+import { Button } from "@gothd/kit-componentes/ui";
+
+export default function App() {
+  return (
+    <Button variant="outline">Enviar</Button>
+  );
+}
+```
+
+### Estilos
+
+```tsx
+import "@gothd/kit-componentes/styles.css";
+```
 
 ---
 
-## 📬 Contato
+## 🌐 Uso via Web Components (sem npm)
 
-Na página **Contato** do projeto você pode enviar um e‑mail diretamente para o autor (eu).
+### Importando a versão mais recente
+
+```html
+<script type="module" src="https://gothd.github.io/kit-componentes/wc/latest/kit-componentes-wc.js"></script>
+```
+
+### Importando uma versão específica
+
+```html
+<script type="module" src="https://gothd.github.io/kit-componentes/wc/0.5.0/kit-componentes-wc.js"></script>
+```
+
+### Exemplo de uso
+
+```html
+<kc-button variant="primary">Enviar</kc-button>
+<kc-card>
+  <h3 slot="title">Card</h3>
+  <p slot="description">Este é um card simples usando o Web Component.</p>
+  <p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur inventore,
+    accusantium quia id recusandae, amet fugit ratione molestias a doloremque minima
+    dolores? Minus obcaecati non quod, harum natus quia nam.
+  </p>
+</kc-card>
+```
+
+---
+
+## 📦 Estrutura do pacote React
+
+- `@gothd/kit-componentes` → **componentes compostos** (não-primitivos, prontos para uso)
+- `@gothd/kit-componentes/ui` → **primitivos de UI** (baseados em Radix e utilitários de baixo nível)
+- `@gothd/kit-componentes/hooks` → hooks utilitários
+- `@gothd/kit-componentes/utils` → funções auxiliares
+- `@gothd/kit-componentes/styles` → estilos globais
+- `@gothd/kit-componentes/styles.css` → CSS pronto
+- `@gothd/kit-componentes/tailwind.css` → Tailwind base
+
+---
+
+## 🛠️ Scripts principais
+
+- `npm run build:react` → gera o pacote React em `dist/react`
+- `npm run build:wc` → gera os Web Components em `dist/wc`
+- `npm run build:prod` → build completo (React + WC)
+- `npm run dev` → playground de desenvolvimento
+
+---
+
+## 📖 Roadmap
+
+- [x] Deploy automático dos Web Components no GitHub Pages
+- [x] Publicação do pacote React no npm
+- [ ] Showcase interativo (playground) publicado junto ao pacote WC
+- [ ] Documentação detalhada de cada componente

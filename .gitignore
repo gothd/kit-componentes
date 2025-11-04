@@ -24,4 +24,8 @@ dist-ssr
 *.sw?
 
 .env
+.env.*
 !.env.example
+
+# Development tmp files
+public/kit-componentes-wc.js

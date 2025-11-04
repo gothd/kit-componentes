@@ -1,4 +1,5 @@
 {
+  "extends": "./tsconfig.json",
   "compilerOptions": {
     "composite": true,
     "baseUrl": ".",
@@ -16,12 +17,7 @@
 
     "strict": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
-
-    "paths": {
-      "@components": ["src/components"],
-      "@components/*": ["src/components/*"]
-    }
+    "noUnusedParameters": true
   },
-  "include": ["src/playground"]
+  "include": ["dist/wc", "src"]
 }

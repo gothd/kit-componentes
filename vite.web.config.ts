@@ -2,7 +2,7 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import { defineConfig } from "vite";
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [
     react({
       babel: {
@@ -26,17 +26,18 @@ export default defineConfig({
   define: {
     "process.env.NODE_ENV": JSON.stringify("production"),
   },
+  publicDir: false,
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/register.tsx"),
       name: "KitComponentesWC",
-      fileName: () => `kit-componentes-wc.js`,
       formats: ["iife"], // 👈 gera um único arquivo que se autoexecuta e registra tudo no window
+      fileName: () => "kit-componentes-wc.js",
     },
-    outDir: "dist/wc",
+    outDir: mode === "development" ? "public" : "dist/wc",
     emptyOutDir: false,
     rollupOptions: {
       // React e ReactDOM ficam embutidos no bundle
     },
   },
-});
+}));
