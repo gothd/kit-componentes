@@ -1,0 +1,8 @@
+@import "@styles/reset.css";
+
+::slotted([slot="title"]) {
+  @apply block text-xl font-bold mb-2;
+}
+::slotted([slot="description"]) {
+  @apply block mb-4;
+}

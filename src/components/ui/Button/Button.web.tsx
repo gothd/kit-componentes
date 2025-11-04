@@ -1,10 +1,14 @@
-// Button.web.tsx
 import { WebComponentBase } from "@/defineWithStyles";
 import { ButtonBase, ButtonBaseProps } from "./ButtonBase";
+import styles from "./styles.css?inline";
 
 export class KcButton extends WebComponentBase<ButtonBaseProps> {
   static get observedAttributes() {
     return ["variant", "class"];
+  }
+
+  constructor() {
+    super(styles);
   }
 
   protected render() {

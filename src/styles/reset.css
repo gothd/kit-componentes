@@ -1,0 +1,5 @@
+::slotted(*) {
+  all: initial;
+  font: inherit;
+  color: inherit;
+}

@@ -21,7 +21,12 @@
       <section>
         <h2>Botão</h2>
         <kc-button>Enviar</kc-button>
-        <kc-button variant="secondary">Enviar</kc-button>
+        <kc-button variant="secondary">
+          <slot>
+            <div>&gt;</div>
+            Enviar</slot
+          >
+        </kc-button>
         <kc-button variant="outline">Olá mundo</kc-button>
       </section>
 
