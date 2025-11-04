@@ -1,4 +1,5 @@
-import { type ClassValue } from "clsx";
+import { clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 export * from "./typedEntries.js";
 /**
  * Utilitário para unir classes condicionalmente
@@ -8,5 +9,6 @@ export * from "./typedEntries.js";
  * cn("p-2", condition && "bg-red-500", "p-4")
  * => "bg-red-500 p-4"
  */
-export declare function cn(...inputs: ClassValue[]): string;
-//# sourceMappingURL=index.d.ts.map
+export function cn(...inputs) {
+    return twMerge(clsx(inputs));
+}

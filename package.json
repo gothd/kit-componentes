@@ -1,49 +1,47 @@
 {
   "name": "kit-componentes",
-  "version": "0.2.0",
+  "version": "0.3.0",
+  "types": "dist/react/components/index.d.ts",
   "type": "module",
-  "main": "dist/react/kit-componentes.umd.js",
-  "module": "dist/react/kit-componentes.es.js",
-  "types": "dist/react/types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/react/kit-componentes.es.js",
-      "require": "./dist/react/kit-componentes.umd.js",
-      "types": "./dist/react/types/index.d.ts"
+      "import": "./dist/react/components/index.js",
+      "types": "./dist/react/components/index.d.ts"
+    },
+    "./ui": {
+      "import": "./dist/react/components/ui/index.js",
+      "types": "./dist/react/components/ui/index.d.ts"
     },
     "./hooks": {
       "import": "./dist/react/hooks/index.js",
-      "require": "./dist/react/hooks/index.js",
       "types": "./dist/react/hooks/index.d.ts"
     },
     "./utils": {
       "import": "./dist/react/utils/index.js",
-      "require": "./dist/react/utils/index.js",
       "types": "./dist/react/utils/index.d.ts"
     },
     "./styles": {
       "import": "./dist/react/styles/index.js",
-      "require": "./dist/react/styles/index.js",
       "types": "./dist/react/styles/index.d.ts"
     },
-    "./styles.css": "./dist/react/styles/index.css"
+    "./styles.css": "./dist/react/styles/index.css",
+    "./tailwind.css": "./dist/react/styles/tailwind.css"
   },
   "files": [
     "dist/react"
   ],
   "scripts": {
+    "clean": "rimraf dist",
     "dev": "vite --config vite.playground.config.ts",
+    "preview": "vite preview --config vite.playground.config.ts",
     "build:playground": "tsc -p tsconfig.playground.json && vite build --config vite.playground.config.ts",
     "preview:playground": "vite preview --config vite.playground.config.ts",
-    "build:bundles": "tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json",
-    "build:types": "tsc -p tsconfig.types.json",
-    "build:copy-css": "cpx \"src/styles/index.css\" dist/react/styles",
-    "build:react": "npm run build:bundles && npm run build:types && vite build && npm run build:copy-css",
-    "preview:react": "vite preview",
-    "build:css": "npx postcss ./src/styles/index.css -o ./src/styles/tailwind.flat.css",
+    "build:copy-css": "cpx \"src/styles/*.css\" dist/react/styles",
+    "build:react": "tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json && npm run build:copy-css",
+    "build:css": "cross-env NODE_ENV=production tailwindcss -i ./src/styles/tailwind.css -o ./src/styles/index.css --minify --content './src/components/**/*.{js,ts,jsx,tsx}'",
     "build:wc": "npm run build:css && vite build --config vite.web.config.ts",
     "preview:wc": "vite preview --config vite.web.config.ts",
-    "build:prod": "npm run build:react && npm run build:wc"
+    "build:prod": "npm run clean && cross-env NODE_ENV=production npm run build:react && npm run build:wc"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
@@ -69,8 +67,6 @@
     "@emailjs/browser": "^4.4.1",
     "@eslint/js": "^9.36.0",
     "@tailwindcss/cli": "^4.1.16",
-    "@tailwindcss/postcss": "^4.1.16",
-    "@tailwindcss/vite": "^4.1.16",
     "@types/node": "^24.6.0",
     "@types/react": "^19.1.16",
     "@types/react-dom": "^19.1.9",
@@ -78,15 +74,15 @@
     "autoprefixer": "^10.4.21",
     "babel-plugin-react-compiler": "^19.1.0-rc.3",
     "cpx2": "^8.0.0",
+    "cross-env": "^10.1.0",
     "eslint": "^9.36.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.22",
     "globals": "^16.4.0",
     "postcss": "^8.5.6",
-    "postcss-cli": "^11.0.1",
-    "postcss-preset-env": "^10.4.0",
     "react-to-webcomponent": "^2.0.1",
-    "tailwindcss": "^4.1.16",
+    "rimraf": "^6.1.0",
+    "tailwindcss": "^3.4.18",
     "tsc-alias": "^1.8.16",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.45.0",

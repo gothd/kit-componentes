@@ -1,40 +1,27 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "composite": true,
-    "baseUrl": ".",
-
-    "target": "ES2022",
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "rewriteRelativeImportExtensions": true,
-    "jsx": "react-jsx",
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-
-    "tsBuildInfoFile": "./dist/.tsbuildinfo",
-    "declaration": true,
-    "emitDeclarationOnly": false,
-    "outDir": "dist/react",
-    "rootDir": "src",
-
-    "strict": true,
-    "skipLibCheck": true,
-
-    "useDefineForClassFields": true,
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "types": ["vite/client"],
-
-    "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "target": "ES2020", // nível de JS gerado
+    "module": "ESNext", // mantém ESM moderno
+    "jsx": "react-jsx", // JSX compatível com React 17+
+    "declaration": true, // gera arquivos .d.ts
+    "emitDeclarationOnly": false, // gera .js e .d.ts
+    "declarationMap": true, // útil para debug de tipos
+    "outDir": "dist/react", // saída final
+    "rootDir": "src", // base do source
+    "moduleResolution": "bundler", // resolução moderna de módulos
+    "esModuleInterop": true, // compatibilidade com CommonJS
+    "skipLibCheck": true, // ignora checagem de libs
+    "isolatedModules": true, // garante compatibilidade com bundlers
+    "allowSyntheticDefaultImports": true // facilita imports default
   },
   "include": ["src"],
   "exclude": [
     "node_modules",
     "dist",
-    "src/components",
     "src/playground",
-    "src/register.tsx",
-    "**/*.web.tsx"
+    "src/*.tsx",
+    "src/components/**/*.web.tsx",
+    "src/components/ui/*.tsx" // TODO: remover após criar todos wc
   ]
 }

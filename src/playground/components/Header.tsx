@@ -15,9 +15,9 @@ import {
 } from "@components/ui";
 import { useMediaQuery } from "@hooks/useMediaQuery";
 import { cn } from "@utils";
+import { typedEntries } from "@utils/typedEntries";
 import { FiChevronDown, FiLayout, FiPackage, FiX } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import { typedEntries } from "../../utils/typedEntries";
 import { env } from "../config/env";
 import { docs } from "../docsConfig";
 
@@ -62,10 +62,7 @@ export default function Header() {
               <div className="h-full overflow-y-auto">
                 <Accordion type="multiple" className="w-full">
                   {typedEntries(docs).map(([category, comps]) => (
-                    <AccordionItem
-                      key={String(category)}
-                      value={String(category)}
-                    >
+                    <AccordionItem key={String(category)} value={String(category)}>
                       <AccordionTrigger className="flex justify-between items-center w-full py-2 font-semibold text-gray-800 hover:text-indigo-600 group">
                         {category}
                         <FiChevronDown className="w-4 h-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />

@@ -1,1 +1,1 @@
-export * from "./Button/Button.react";
+export { Button } from "./Button/Button.react";

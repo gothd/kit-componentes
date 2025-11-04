@@ -1,4 +1,3 @@
-import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 import { defineConfig } from "vite";
@@ -10,11 +9,14 @@ export default defineConfig({
         plugins: [["babel-plugin-react-compiler"]],
       },
     }),
-    tailwindcss(),
   ],
+  css: {
+    postcss: "./postcss.config.js", // garante que o PostCSS seja usado
+  },
   root: "src/playground",
   resolve: {
     alias: {
+      "@": path.resolve(__dirname, "src"),
       "@components": path.resolve(__dirname, "src/components"),
       "@components/ui": path.resolve(__dirname, "src/components/ui"),
       "@styles": path.resolve(__dirname, "src/styles"),

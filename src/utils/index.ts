@@ -1,7 +1,7 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-export * from "./typedEntries";
+export * from "./typedEntries.js";
 
 /**
  * Utilitário para unir classes condicionalmente
