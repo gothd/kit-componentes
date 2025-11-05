@@ -52,14 +52,44 @@ import "@gothd/kit-componentes/styles.css";
 
 ---
 
-### 🌐 Uso via Web Components (sem npm)
+### Estilos no React
+
+```tsx
+// Estilos essenciais para os componentes React
+import "@gothd/kit-componentes/styles.css";
+
+// Se quiser todas as classes do Tailwind (tema base completo)
+import "@gothd/kit-componentes/styles/index.css";
+```
+
+| Import | Conteúdo | Uso recomendado |
+|--------|----------|-----------------|
+| `@gothd/kit-componentes/styles.css` | Estilos essenciais React | Projetos React que só usam os componentes |
+| `@gothd/kit-componentes/styles/index.css` | Tema base completo (Tailwind) | Projetos React que querem utilitários Tailwind sem configurar Tailwind |
+| `https://gothd.github.io/kit-componentes/wc/latest/index.css` | Tema base completo (Tailwind) | Projetos que consomem via Web Components |
+
+---
+
+### 📦 Estrutura do pacote React (atualizada)
+
+- `@gothd/kit-componentes` → componentes compostos  
+- `@gothd/kit-componentes/ui` → primitivos de UI  
+- `@gothd/kit-componentes/hooks` → hooks utilitários  
+- `@gothd/kit-componentes/utils` → funções auxiliares  
+- `@gothd/kit-componentes/styles.css` → estilos essenciais React  
+- `@gothd/kit-componentes/styles/index.css` → tema base completo (Tailwind)  
+
+---
+
+
+## 🌐 Uso via Web Components (sem npm)
 
 A biblioteca oferece dois formatos de consumo via GitHub Pages, ambos registrando os componentes em `window.KitComponentes`:
 
 - **Bundle global**: registra todos os componentes de uma vez
 - **Bundles individuais**: cada componente é distribuído separadamente, com escopo de estilo otimizado
 
-#### Importando a versão mais recente
+### Importando a versão mais recente
 
 ```html
 <!-- Bundle global -->
@@ -70,7 +100,7 @@ A biblioteca oferece dois formatos de consumo via GitHub Pages, ambos registrand
 <script type="module" src="https://gothd.github.io/kit-componentes/wc/latest/kc-card.js"></script>
 ```
 
-#### Importando uma versão específica
+### Importando uma versão específica
 
 ```html
 <!-- Bundle global -->
@@ -81,7 +111,7 @@ A biblioteca oferece dois formatos de consumo via GitHub Pages, ambos registrand
 <script type="module" src="https://gothd.github.io/kit-componentes/wc/0.6.0/kc-card.js"></script>
 ```
 
-#### Exemplo de uso
+### Exemplo de uso
 
 ```html
 <kc-button variant="primary">Enviar</kc-button>
@@ -96,14 +126,17 @@ A biblioteca oferece dois formatos de consumo via GitHub Pages, ambos registrand
 
 ---
 
-## 📦 Estrutura do pacote React
+### Estilos nos Web Components
 
-- `@gothd/kit-componentes` → **componentes compostos** (não-primitivos, prontos para uso)
-- `@gothd/kit-componentes/ui` → **primitivos de UI** (baseados em Radix e utilitários de baixo nível)
-- `@gothd/kit-componentes/hooks` → hooks utilitários
-- `@gothd/kit-componentes/utils` → funções auxiliares
-- `@gothd/kit-componentes/styles` → estilos globais
-- `@gothd/kit-componentes/styles.css` → CSS pronto
+Além dos bundles JS, agora o pacote WC também distribui o tema base completo:
+
+```html
+<!-- Tema base completo (todas as classes do Tailwind) -->
+<link rel="stylesheet" href="https://gothd.github.io/kit-componentes/wc/latest/index.css">
+
+<!-- Bundle global de componentes -->
+<script type="module" src="https://gothd.github.io/kit-componentes/wc/latest/kit-componentes.js"></script>
+```
 
 ---
 

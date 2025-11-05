@@ -11,14 +11,23 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
-    <script src="./dist/wc/kit-componentes.js"></script>
+    <!-- <script src="./dist/wc/kit-componentes.js"></script> -->
+    <script src="./dist/wc/kc-button.js"></script>
+    <script src="./dist/wc/kc-card.js"></script>
     <script>
-      console.log(window.KitComponentes);
+      console.log("Kit Componentes", window.KitComponentes);
     </script>
   </head>
   <body>
     <a href="https://wa.me/message/LWPADVNNKEWNG1" target="_blank">
       <kc-button variant="secondary">WhatsApp</kc-button>
     </a>
+    <kc-card>
+      <h3 slot="title">Card</h3>
+      <p slot="description">Este é um card simples usando o Web Component.</p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, dicta ex. Aut fugit velit amet
+      quod ad odio, deleniti id corporis vitae, facere repellendus soluta nesciunt labore nihil
+      minus possimus!
+    </kc-card>
   </body>
 </html>

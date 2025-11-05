@@ -1,6 +1,6 @@
 {
   "name": "@gothd/kit-componentes",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Kit de componentes UI disponível como Web Components e pacote React.",
   "types": "dist/react/components/index.d.ts",
   "type": "module",
@@ -25,8 +25,7 @@
       "import": "./dist/react/styles/index.js",
       "types": "./dist/react/styles/index.d.ts"
     },
-    "./styles.css": "./dist/react/styles/index.css",
-    "./tailwind.css": "./dist/react/styles/tailwind.css"
+    "./styles.css": "./dist/react/styles/react.css"
   },
   "files": [
     "dist/react"
@@ -37,14 +36,17 @@
     "preview": "vite preview --config vite.playground.config.ts",
     "build:playground": "tsc -p tsconfig.playground.json && vite build --config vite.playground.config.ts",
     "preview:playground": "vite preview --config vite.playground.config.ts",
-    "build:copy-css": "cpx \"src/styles/*.css\" dist/react/styles",
-    "build:react": "cross-env NODE_ENV=production tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json && npm run build:copy-css",
-    "build:css": "node generate-css.mjs",
-    "build:wc:core": "vite build --config vite.web.config.ts",
+    "build:css": "cross-env NODE_ENV=production npx tailwindcss -i src/styles/tailwind.css -o src/styles/index.css --minify",
+    "build:react:css": "node generate-css-react.mjs",
+    "build:react:copy-css": "cpx \"src/styles/{react.css,index.css}\" dist/react/styles",
+    "build:react": " npm run build:react:css && cross-env NODE_ENV=production tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json && npm run build:react:copy-css",
+    "build:wc:css": "node generate-css-wc.mjs",
+    "build:wc:copy-css": "cpx \"src/styles/index.css\" dist/wc",
+    "build:wc:kit": "vite build --config vite.web.config.ts",
     "build:wc:components": "node build-wc-components.mjs",
-    "build:wc": "npm run build:css && npm run build:wc:core && npm run build:wc:components",
+    "build:wc": "npm run build:wc:css && npm run build:wc:kit && npm run build:wc:components && npm run build:wc:copy-css",
     "preview:wc": "vite preview --config vite.web.config.ts",
-    "build:prod": "npm run clean && npm run build:react && npm run build:wc",
+    "build:prod": "npm run build:css && npm run clean && npm run build:react && npm run build:wc",
     "release": "npm run build:prod && npm publish --access public"
   },
   "peerDependencies": {

@@ -20,7 +20,7 @@
     "node_modules",
     "dist",
     "src/playground",
-    "src/wc/*.ts",
+    "src/wc",
     "src/components/**/*.web.tsx",
     "src/components/ui/*.tsx" // TODO: remover após criar todos wc
   ]

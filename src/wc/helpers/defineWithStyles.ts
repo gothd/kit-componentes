@@ -1,5 +1,5 @@
 // defineWithStyles.ts
-import tailwindCSS from "@styles/index.css?inline";
+import tailwindCSS from "@styles/wc.css?inline";
 import ReactDOM from "react-dom/client";
 
 const sheet = new CSSStyleSheet();

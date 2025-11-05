@@ -4,6 +4,14 @@ Todas as mudanças notáveis neste projeto serão documentadas aqui.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere a [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
+## [0.6.2] - 2025-11-05
+
+### 🐛 Bug Fixes
+- Corrigida a exportação de estilos globais:
+  - `@gothd/kit-componentes/styles.css` agora contém apenas os estilos React essenciais.
+  - `@gothd/kit-componentes/styles/index.css` passa a refletir corretamente o tema base completo do Tailwind.
+- Pacote WC agora também distribui `index.css` com todas as classes do Tailwind, permitindo uso de utilitários sem configuração adicional.
+
 ## [0.6.1] - 2025-11-05
 ### ✨ Novidades
 

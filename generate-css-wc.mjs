@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const tailwindInput = path.resolve(__dirname, "src/styles/tailwind.css");
 const componentsDir = path.resolve(__dirname, "src/components");
-const globalOutput = path.resolve(__dirname, "src/styles/index.css");
+const wcOutput = path.resolve(__dirname, "src/styles/wc.css");
 
 // 🔧 Gera CSS para X.web.tsx + XBase.tsx
 function generateCSSWithBase(tsxPath) {
@@ -16,7 +16,6 @@ function generateCSSWithBase(tsxPath) {
   const cssPath = tsxPath.replace(path.basename(tsxPath), "styles.css");
 
   const contentFiles = [`'${tsxPath}'`, `'${basePath}'`];
-
   const command = `cross-env NODE_ENV=production npx tailwindcss -i ${tailwindInput} -o ${cssPath} --minify --content ${contentFiles.join(",")}`;
   console.log(`🎨 Gerando CSS para ${baseName}.web.tsx + ${baseName}Base.tsx → ${cssPath}`);
   execSync(command, { stdio: "inherit" });
@@ -56,7 +55,8 @@ for (const entry of fs.readdirSync(componentsDir, { withFileTypes: true })) {
   }
 }
 
-// 🌐 4. Gera CSS global index.css com base em todos os arquivos da lib
-const globalCommand = `npx tailwindcss -i ${tailwindInput} -o ${globalOutput} --minify --content './src/components/**/*.{js,ts,jsx,tsx}'`;
-console.log(`🧵 Gerando CSS global → ${globalOutput}`);
-execSync(globalCommand, { stdio: "inherit" });
+// 🌐 4. Gera CSS global Web Components (Base + Web)
+const wcContentGlob = "'./src/components/**/*Base.tsx','./src/components/**/*web.tsx'";
+const wcCommand = `cross-env NODE_ENV=production npx tailwindcss -i ${tailwindInput} -o ${wcOutput} --minify --content ${wcContentGlob}`;
+console.log(`🧵 Gerando CSS global Web Components → ${wcOutput}`);
+execSync(wcCommand, { stdio: "inherit" });
