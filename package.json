@@ -1,6 +1,6 @@
 {
   "name": "@gothd/kit-componentes",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Kit de componentes UI disponível como Web Components e pacote React.",
   "types": "dist/react/components/index.d.ts",
   "type": "module",

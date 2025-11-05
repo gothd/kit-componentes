@@ -24,26 +24,29 @@ jobs:
       - name: Build WC
         run: npm run build:wc
 
-      # pega a versão do package.json
       - name: Get package version
         id: pkg
         run: |
           VERSION=$(node -p "require('./package.json').version")
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
 
-      - name: Debug version
-        run: echo "📦 Package version is ${{ steps.pkg.outputs.version }}"
+      - name: Clone existing gh-pages
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git fetch origin gh-pages
+          git worktree add gh-pages origin/gh-pages
 
-      # cria pastas versionadas e latest
       - name: Prepare dist
         run: |
-          mkdir -p publish/wc/${{ steps.pkg.outputs.version }}
-          mkdir -p publish/wc/latest
-          cp -r dist/wc/* publish/wc/${{ steps.pkg.outputs.version }}/
-          cp -r dist/wc/* publish/wc/latest/
+          mkdir -p gh-pages/wc/${{ steps.pkg.outputs.version }}
+          mkdir -p gh-pages/wc/latest
+          cp -r dist/wc/* gh-pages/wc/${{ steps.pkg.outputs.version }}/
+          cp -r dist/wc/* gh-pages/wc/latest/
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./publish
+      - name: Commit and push to gh-pages
+        run: |
+          cd gh-pages
+          git add .
+          git commit -m "Deploy WC version ${{ steps.pkg.outputs.version }}"
+          git push origin HEAD:gh-pages
