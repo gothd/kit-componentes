@@ -6,71 +6,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="icon" type="image/x-icon" href="./favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Teste Kit Componentes</title>
+    <title>Boilerplate - Kit Componentes</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
-    <!-- importa o bundle gerado pelo Vite -->
-    <script type="module" src="./dist/wc/kit-componentes-wc.js"></script>
+    <script src="./dist/wc/kit-componentes.js"></script>
+    <script>
+      console.log(window.KitComponentes);
+    </script>
   </head>
   <body>
-    <h1>Kit Componentes — Teste</h1>
-
-    <div className="space-y-8">
-      <section>
-        <h2>Botão</h2>
-        <kc-button>Enviar</kc-button>
-        <kc-button variant="secondary">
-          <slot>
-            <div>&gt;</div>
-            Enviar</slot
-          >
-        </kc-button>
-        <kc-button variant="outline">Olá mundo</kc-button>
-      </section>
-
-      <section>
-        <h2>Card</h2>
-        <kc-card>
-          <h3 slot="title">Card</h3>
-          <p slot="description">Este é um card simples usando o Web Component.</p>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur inventore,
-            accusantium quia id recusandae, amet fugit ratione molestias a doloremque minima
-            dolores? Minus obcaecati non quod, harum natus quia nam.
-          </p>
-        </kc-card>
-
-        <kc-card class="bg-neutral-light">
-          <h3 slot="title">Card</h3>
-          <p slot="description">Este é um card simples usando o Web Component.</p>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur inventore,
-            accusantium quia id recusandae, amet fugit ratione molestias a doloremque minima
-            dolores? Minus obcaecati non quod, harum natus quia nam.
-          </p>
-        </kc-card>
-      </section>
-
-      <section>
-        <h2>Dialog</h2>
-        <kc-dialog id="dialog"></kc-dialog>
-        <kc-button id="open-dialog">Abrir Dialog</kc-button>
-      </section>
-    </div>
-    <script>
-      // Exemplo de interação com o kc-dialog
-      const dialog = document.getElementById("dialog");
-      const openBtn = document.getElementById("open-dialog");
-
-      openBtn.addEventListener("click", () => {
-        if (dialog.showModal) {
-          dialog.showModal();
-        } else {
-          alert("Dialog não suportado neste navegador");
-        }
-      });
-    </script>
+    <a href="https://wa.me/message/LWPADVNNKEWNG1" target="_blank">
+      <kc-button variant="secondary">WhatsApp</kc-button>
+    </a>
   </body>
 </html>

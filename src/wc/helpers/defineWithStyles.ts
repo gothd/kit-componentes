@@ -3,12 +3,11 @@ import tailwindCSS from "@styles/index.css?inline";
 import ReactDOM from "react-dom/client";
 
 const sheet = new CSSStyleSheet();
-sheet.replaceSync(tailwindCSS);
 
 export abstract class WebComponentBase<T extends object> extends HTMLElement {
   protected root?: ReactDOM.Root;
 
-  constructor(styles?: string | string[]) {
+  constructor(baseSheet: string, styles?: string | string[]) {
     super();
     const shadow = this.attachShadow({ mode: "open", delegatesFocus: true });
 
@@ -20,6 +19,9 @@ export abstract class WebComponentBase<T extends object> extends HTMLElement {
         shadow.appendChild(styleTag);
       }
     }
+
+    if (import.meta.env.VITE_SHEET === "global") sheet.replaceSync(tailwindCSS);
+    else sheet.replaceSync(baseSheet);
 
     if (!shadow.adoptedStyleSheets.includes(sheet)) {
       shadow.adoptedStyleSheets = [...shadow.adoptedStyleSheets, sheet];

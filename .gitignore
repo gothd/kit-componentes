@@ -28,4 +28,4 @@ dist-ssr
 !.env.example
 
 # Development tmp files
-public/kit-componentes-wc.js
+public/kit-componentes.js

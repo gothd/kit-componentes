@@ -1,6 +1,6 @@
 {
   "name": "@gothd/kit-componentes",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Kit de componentes UI disponível como Web Components e pacote React.",
   "types": "dist/react/components/index.d.ts",
   "type": "module",
@@ -39,8 +39,10 @@
     "preview:playground": "vite preview --config vite.playground.config.ts",
     "build:copy-css": "cpx \"src/styles/*.css\" dist/react/styles",
     "build:react": "cross-env NODE_ENV=production tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json && npm run build:copy-css",
-    "build:css": "cross-env NODE_ENV=production npx tailwindcss -i ./src/styles/tailwind.css -o ./src/styles/index.css --minify --content './src/components/**/*.{js,ts,jsx,tsx}'",
-    "build:wc": "npm run build:css && vite build --config vite.web.config.ts",
+    "build:css": "node generate-css.mjs",
+    "build:wc:core": "vite build --config vite.web.config.ts",
+    "build:wc:components": "node build-wc-components.mjs",
+    "build:wc": "npm run build:css && npm run build:wc:core && npm run build:wc:components",
     "preview:wc": "vite preview --config vite.web.config.ts",
     "build:prod": "npm run clean && npm run build:react && npm run build:wc",
     "release": "npm run build:prod && npm publish --access public"

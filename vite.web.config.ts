@@ -25,14 +25,15 @@ export default defineConfig(({ mode }) => ({
   },
   define: {
     "process.env.NODE_ENV": JSON.stringify("production"),
+    "import.meta.env.VITE_SHEET": JSON.stringify("global"),
   },
   publicDir: false,
   build: {
     lib: {
-      entry: path.resolve(__dirname, "src/register.tsx"),
-      name: "KitComponentesWC",
+      entry: path.resolve(__dirname, "src/wc/kit-componentes.ts"),
+      name: "KitComponentes",
       formats: ["iife"], // 👈 gera um único arquivo que se autoexecuta e registra tudo no window
-      fileName: () => "kit-componentes-wc.js",
+      fileName: () => "kit-componentes.js",
     },
     outDir: mode === "development" ? "public" : "dist/wc",
     emptyOutDir: false,

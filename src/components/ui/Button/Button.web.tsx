@@ -1,6 +1,7 @@
-import { WebComponentBase } from "@/defineWithStyles";
+import { WebComponentBase } from "@/wc/helpers/defineWithStyles";
+import styles from "./button.css?inline";
 import { ButtonBase, ButtonBaseProps } from "./ButtonBase";
-import styles from "./styles.css?inline";
+import tailwindCSS from "./styles.css?inline";
 
 export class KcButton extends WebComponentBase<ButtonBaseProps> {
   static get observedAttributes() {
@@ -8,7 +9,7 @@ export class KcButton extends WebComponentBase<ButtonBaseProps> {
   }
 
   constructor() {
-    super(styles);
+    super(tailwindCSS, styles);
   }
 
   protected render() {

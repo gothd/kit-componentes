@@ -1,0 +1,6 @@
+@import "@styles/reset.css";
+
+::slotted(*) {
+  display: flex;
+  gap: 0.25rem;
+}

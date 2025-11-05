@@ -1,6 +1,7 @@
-import { WebComponentBase } from "@/defineWithStyles";
+import { WebComponentBase } from "@/wc/helpers/defineWithStyles";
+import styles from "./card.css?inline";
 import { CardBase, CardBaseProps } from "./CardBase";
-import styles from "./styles.css?inline";
+import tailwindCSS from "./styles.css?inline";
 
 export class KcCard extends WebComponentBase<CardBaseProps> {
   static get observedAttributes() {
@@ -8,7 +9,7 @@ export class KcCard extends WebComponentBase<CardBaseProps> {
   }
 
   constructor() {
-    super(styles); // injeta o CSS no shadow DOM
+    super(tailwindCSS, styles); // injeta o CSS no shadow DOM
   }
 
   protected render() {

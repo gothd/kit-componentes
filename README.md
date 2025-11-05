@@ -1,7 +1,7 @@
 # 👻 Kit Componentes
 
 [![npm version](https://img.shields.io/npm/v/@gothd/kit-componentes?color=blue&logo=npm)](https://www.npmjs.com/package/@gothd/kit-componentes)
-[![GitHub Pages](https://img.shields.io/badge/gh--pages-deployed-brightgreen?logo=github)](https://gothd.github.io/kit-componentes/wc/latest/kit-componentes-wc.js)
+[![GitHub Pages](https://img.shields.io/badge/gh--pages-deployed-brightgreen?logo=github)](https://gothd.github.io/kit-componentes/wc/latest/kit-componentes.js)
 
 Biblioteca de componentes UI disponível em **duas formas de consumo**:
 
@@ -52,34 +52,47 @@ import "@gothd/kit-componentes/styles.css";
 
 ---
 
-## 🌐 Uso via Web Components (sem npm)
+### 🌐 Uso via Web Components (sem npm)
 
-### Importando a versão mais recente
+A biblioteca oferece dois formatos de consumo via GitHub Pages, ambos registrando os componentes em `window.KitComponentes`:
+
+- **Bundle global**: registra todos os componentes de uma vez
+- **Bundles individuais**: cada componente é distribuído separadamente, com escopo de estilo otimizado
+
+#### Importando a versão mais recente
 
 ```html
-<script type="module" src="https://gothd.github.io/kit-componentes/wc/latest/kit-componentes-wc.js"></script>
+<!-- Bundle global -->
+<script type="module" src="https://gothd.github.io/kit-componentes/wc/latest/kit-componentes.js"></script>
+
+<!-- Bundle individual -->
+<script type="module" src="https://gothd.github.io/kit-componentes/wc/latest/kc-button.js"></script>
+<script type="module" src="https://gothd.github.io/kit-componentes/wc/latest/kc-card.js"></script>
 ```
 
-### Importando uma versão específica
+#### Importando uma versão específica
 
 ```html
-<script type="module" src="https://gothd.github.io/kit-componentes/wc/0.5.0/kit-componentes-wc.js"></script>
+<!-- Bundle global -->
+<script type="module" src="https://gothd.github.io/kit-componentes/wc/0.6.0/kit-componentes.js"></script>
+
+<!-- Bundle individual -->
+<script type="module" src="https://gothd.github.io/kit-componentes/wc/0.6.0/kc-button.js"></script>
+<script type="module" src="https://gothd.github.io/kit-componentes/wc/0.6.0/kc-card.js"></script>
 ```
 
-### Exemplo de uso
+#### Exemplo de uso
 
 ```html
 <kc-button variant="primary">Enviar</kc-button>
+
 <kc-card>
   <h3 slot="title">Card</h3>
   <p slot="description">Este é um card simples usando o Web Component.</p>
-  <p>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur inventore,
-    accusantium quia id recusandae, amet fugit ratione molestias a doloremque minima
-    dolores? Minus obcaecati non quod, harum natus quia nam.
-  </p>
 </kc-card>
 ```
+
+> Todos os componentes são registrados com prefixo `kc-` e ficam acessíveis via `window.KitComponentes`, independentemente do formato de importação.
 
 ---
 
@@ -91,7 +104,6 @@ import "@gothd/kit-componentes/styles.css";
 - `@gothd/kit-componentes/utils` → funções auxiliares
 - `@gothd/kit-componentes/styles` → estilos globais
 - `@gothd/kit-componentes/styles.css` → CSS pronto
-- `@gothd/kit-componentes/tailwind.css` → Tailwind base
 
 ---
 

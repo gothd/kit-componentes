@@ -4,6 +4,13 @@ Todas as mudanças notáveis neste projeto serão documentadas aqui.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere a [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
+## [0.6.0] - 2025-11-05
+### ✨ Novidades
+
+- Novo bundle global `kit-componentes.js` substitui `kit-componentes-wc.js`
+- Cada Web Component agora é distribuído também como bundle individual (`kc-button.js`, `kc-card.js`, etc.)
+- Estilos otimizados por componente, reduzindo o tamanho e escopo de cada bundle
+
 ## [0.5.0] - 2025-11-04
 ### Added
 - Workflow de deploy com GitHub Actions para publicar os Web Components no GitHub Pages.
