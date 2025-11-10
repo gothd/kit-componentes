@@ -7,7 +7,7 @@ export interface CardBaseProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export function CardBase({ children, className, ...props }: CardBaseProps) {
   return (
-    <div className={cn("rounded border p-4 shadow bg-white", className)} {...props}>
+    <div className={cn("block rounded border p-4 shadow bg-white", className)} {...props}>
       {children}
     </div>
   );

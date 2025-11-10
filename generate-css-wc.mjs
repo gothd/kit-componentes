@@ -16,7 +16,7 @@ function generateCSSWithBase(tsxPath) {
   const cssPath = tsxPath.replace(path.basename(tsxPath), "styles.css");
 
   const contentFiles = [`'${tsxPath}'`, `'${basePath}'`];
-  const command = `cross-env NODE_ENV=production npx tailwindcss -i ${tailwindInput} -o ${cssPath} --minify --content ${contentFiles.join(",")}`;
+  const command = `cross-env NODE_ENV=production npx tailwindcss -i ${tailwindInput} -o ${cssPath} --minify --content ${contentFiles.join(",")} --no-watch`;
   console.log(`🎨 Gerando CSS para ${baseName}.web.tsx + ${baseName}Base.tsx → ${cssPath}`);
   execSync(command, { stdio: "inherit" });
 }
@@ -55,8 +55,8 @@ for (const entry of fs.readdirSync(componentsDir, { withFileTypes: true })) {
   }
 }
 
-// 🌐 4. Gera CSS global Web Components (Base + Web)
-const wcContentGlob = "'./src/components/**/*Base.tsx','./src/components/**/*web.tsx'";
-const wcCommand = `cross-env NODE_ENV=production npx tailwindcss -i ${tailwindInput} -o ${wcOutput} --minify --content ${wcContentGlob}`;
-console.log(`🧵 Gerando CSS global Web Components → ${wcOutput}`);
-execSync(wcCommand, { stdio: "inherit" });
+// // 🌐 4. Gera CSS global Web Components (Base + Web)
+// const wcContentGlob = "'./src/components/**/*Base.tsx','./src/components/**/*web.tsx'";
+// const wcCommand = `cross-env NODE_ENV=production npx tailwindcss -i ${tailwindInput} -o ${wcOutput} --minify --content ${wcContentGlob}`;
+// console.log(`🧵 Gerando CSS global Web Components → ${wcOutput}`);
+// execSync(wcCommand, { stdio: "inherit" });

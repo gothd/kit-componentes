@@ -1,27 +1,37 @@
-import { WebComponentBase } from "@/wc/helpers/defineWithStyles";
+import { BooleanKeys, NumericKeys } from "@/types";
+import { WebComponentBase, WebComponentBaseProps } from "@/wc/helpers/defineWithStyles";
 import styles from "./button.css?inline";
 import { ButtonBase, ButtonBaseProps } from "./ButtonBase";
 import tailwindCSS from "./styles.css?inline";
 
-export class KcButton extends WebComponentBase<ButtonBaseProps> {
+export type KcButtonProps = WebComponentBaseProps & ButtonBaseProps;
+
+/**
+ * Button Web Component
+ *
+ * @element kc-button
+ *
+ * @attr variant - Estilo do botão ("primary" | "secondary | "outline").
+ * @attr class - Classe CSS adicional.
+ *
+ */
+// * @slot icon - Ícone exibido dentro do botão.
+// * @slot label - Texto do botão.
+export class KcButton extends WebComponentBase<KcButtonProps> {
   static get observedAttributes() {
-    return ["variant", "class"];
+    return ["variant"];
   }
+
+  protected booleanAttributes: BooleanKeys<KcButtonProps>[] = [];
+  protected numericAttributes: NumericKeys<KcButtonProps>[] = [];
 
   constructor() {
     super(tailwindCSS, styles);
   }
 
-  protected render() {
-    const attrs = Array.from(this.attributes);
-    const props = attrs.reduce<Record<string, string>>((acc, attr) => {
-      const name = attr.name === "class" ? "className" : attr.name;
-      acc[name] = attr.value;
-      return acc;
-    }, {});
-
+  protected render({ className, ...props }: KcButtonProps) {
     this.root?.render(
-      <ButtonBase {...(props as ButtonBaseProps)}>
+      <ButtonBase className={className} {...props}>
         <slot />
       </ButtonBase>
     );

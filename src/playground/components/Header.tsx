@@ -13,17 +13,19 @@
   DrawerTitle,
   DrawerTrigger,
 } from "@components/ui"; */
-// import { useMediaQuery } from "@hooks/useMediaQuery";
-// import { cn } from "@utils";
+import { Drawer } from "@components/ui";
+import { useMediaQuery } from "@hooks/useMediaQuery";
+import { cn } from "@utils";
 // import { typedEntries } from "@utils/typedEntries";
-// import { FiChevronDown, FiLayout, FiPackage, FiX } from "react-icons/fi";
-import { FiLayout } from "react-icons/fi";
+import { useState } from "react";
+import { FiLayout, FiPackage, FiX } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { env } from "../config/env";
 // import { docs } from "../docsConfig";
 
 export default function Header() {
-  // const isDesktop = useMediaQuery("(min-width: 768px)");
+  const isDesktop = useMediaQuery("(min-width: 768px)");
+  const [open, setOpen] = useState(false);
 
   return (
     <header className="bg-white shadow-md">
@@ -32,6 +34,35 @@ export default function Header() {
           <h1 className="text-xl font-bold text-indigo-600">{env.APP_NAME}</h1>
         </Link>
         <nav className="flex gap-4 lg:gap-6">
+          <Drawer.Root open={open} onOpenChange={setOpen}>
+            <Drawer.Trigger asChild>
+              <button className="flex items-center gap-2 text-neutral hover:text-indigo-600 cursor-pointer">
+                <FiPackage className="size-6 md:hidden lg:block" />
+                <div className="hidden md:block">Componentes</div>
+              </button>
+            </Drawer.Trigger>
+
+            <Drawer.Content direction={isDesktop ? "right" : "left"}>
+              <Drawer.Header>
+                <Drawer.Title>Título</Drawer.Title>
+                <Drawer.Description>Descrição opcional</Drawer.Description>
+              </Drawer.Header>
+
+              <div className="p-4">Conteúdo principal do Drawer</div>
+
+              <Drawer.Footer>
+                <Drawer.Close
+                  className={cn("absolute", {
+                    "left-4": isDesktop,
+                    "right-4": !isDesktop,
+                  })}
+                >
+                  <FiX className="size-8" />
+                </Drawer.Close>
+              </Drawer.Footer>
+            </Drawer.Content>
+          </Drawer.Root>
+
           {/* <Drawer direction={isDesktop ? "right" : "left"}>
             <DrawerTrigger asChild>
               <button className="flex items-center gap-2 text-neutral hover:text-indigo-600 cursor-pointer">

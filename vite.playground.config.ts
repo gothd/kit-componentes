@@ -14,6 +14,7 @@ export default defineConfig({
     postcss: "./postcss.config.js", // garante que o PostCSS seja usado
   },
   root: "src/playground",
+  publicDir: path.resolve(__dirname, "public"),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
